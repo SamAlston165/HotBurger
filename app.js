@@ -24,6 +24,6 @@ const server = http.createServer((request, response) => {
 
 });
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

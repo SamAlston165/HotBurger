@@ -1,10 +1,3 @@
-#create docker image
 
-#should respond to any info on port 80 and host server
-
-#mount with logs directory
-
-
-docker image build hotburger:v0.1
-
-docker start container hotburger:v0.1
+docker image build -t hotburger:v1 .
+docker container run hotburger:v1
