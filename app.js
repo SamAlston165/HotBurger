@@ -1,7 +1,7 @@
 const http = require('http');
 const log = require('simple-node-logger').createSimpleFileLogger('project.log');
 const fs = require('fs');
-const port = 80;
+const port = 8080;
 const hostname = 'localhost';
 
 const server = http.createServer((request, response) => {
