@@ -8,6 +8,6 @@ WORKDIR /app
 
 RUN npm install simple-node-logger --save
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["node","app.js"]

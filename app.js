@@ -1,8 +1,7 @@
 const http = require('http');
 const log = require('simple-node-logger').createSimpleFileLogger('project.log');
 const fs = require('fs');
-const port = 8080;
-const hostname = 'localhost';
+const port = 80;
 
 const server = http.createServer((request, response) => {
 
@@ -25,6 +24,6 @@ const server = http.createServer((request, response) => {
 
 })
 
-server.listen(port, hostname, () => {
-console.log(`server listening on port: ${port}`);
+server.listen(port, () => {
+console.log(`Server listening on port: ${port}`);
 });
