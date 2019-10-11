@@ -1,29 +1,32 @@
-const http = require('http');
-const log = require('simple-node-logger').createSimpleFileLogger('project.log');
+const express = require('express')
+const app = express()
+const port = 80
 const fs = require('fs');
-const port = 80;
+var morgan = require('morgan')
 
-const server = http.createServer((request, response) => {
+var accessLogStream = fs.createWriteStream(__dirname + '/project.log',{flags: 'a'});
 
-  if(request.url == '/version') {
+app.use(morgan('tiny', {stream: accessLogStream}))
 
-    if(response.statusCode == 200)
-    {
-    response.end('This is version 0 of the HotBurger service');
-    log.info('Request: localhost:', port , request.url , ' with status code ', response.statusCode , ' occured at ', new Date().toJSON());
-    }
-  }
+app.get('/', (req, res) => { 
 
-  if(request.url == '/logs') {
-    let content = fs.readFileSync(process.cwd() + "/project.log").toString()
-    response.end(content);
-  }
-
-  response.end('Welcome to the HotBurger Service');
-  log.info('Request: localhost:', port , request.url.substring(0,request.length-1) , ' with status code ', response.statusCode ,' occured at ', new Date().toJSON());
+res.send('Welcome to the HotBurger Service');
 
 })
 
-server.listen(port, () => {
-console.log(`Server listening on port: ${port}`);
-});
+
+app.get('/version', (req, res) => {
+
+res.send('This is version 0 of Hotburger service');
+
+})
+
+
+app.get('/logs', (req,res) => {
+
+let content = fs.readFileSync(process.cwd() + "/project.log", 'utf8');
+res.send(content);
+
+})
+
+app.listen(port, () => console.log(`Server is listening on port ${port}!`))

@@ -6,7 +6,8 @@ RUN git clone https://github.com/SamAlston165/HotBurger.git
 COPY . /app
 WORKDIR /app
 
-RUN npm install simple-node-logger --save
+RUN npm install express --save
+RUN npm install morgan --save
 
 EXPOSE 80
 
