@@ -1,0 +1,4 @@
+02:32:26.669 INFO  Request: localhost:3000 with status code 200 occured at 2019-10-09T02:32:26.669Z 
+02:32:38.200 INFO  Request: localhost:3000/version with status code 200 occured at 2019-10-09T02:32:38.200Z 
+02:32:38.200 INFO  Request: localhost:3000 with status code 200 occured at 2019-10-09T02:32:38.200Z 
+02:32:47.941 INFO  Request: localhost:3000 with status code 200 occured at 2019-10-09T02:32:47.941Z 

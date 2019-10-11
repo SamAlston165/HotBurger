@@ -2,6 +2,7 @@ const http = require('http');
 const log = require('simple-node-logger').createSimpleFileLogger('project.log');
 const fs = require('fs');
 const port = 80;
+const hostname = 'localhost';
 
 const server = http.createServer((request, response) => {
 
@@ -22,8 +23,8 @@ const server = http.createServer((request, response) => {
   response.end('Welcome to the HotBurger Service');
   log.info('Request: localhost:', port , request.url.substring(0,request.length-1) , ' with status code ', response.statusCode ,' occured at ', new Date().toJSON());
 
-});
+})
 
-server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+server.listen(port, hostname, () => {
+console.log(`server listening on port: ${port}`);
 });
