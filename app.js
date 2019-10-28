@@ -17,16 +17,16 @@ res.send('Welcome to the HotBurger Service');
 
 app.get('/version', (req, res) => {
 
-res.send('This is version 0 of Hotburger service');
+res.send('This is version 1 of Hotburger service.');
 
 })
 
+app.get('/getmenu', (req,res) => {
 
-app.get('/logs', (req,res) => {
+	res.send('Hotdog: $20' + '/n' + 'Hamburger: $35' + '/n' + 'Soda: $4' + '/n' + 'Cookie: $6');
+}
 
-let content = fs.readFileSync(process.cwd() + "/project.log", 'utf8');
-res.send(content);
-
-})
+app.post('/purchase', (req,res) => {
+}
 
 app.listen(port, () => console.log(`Server is listening on port ${port}!`))
