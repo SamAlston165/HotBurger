@@ -26,7 +26,7 @@ app.get('/getmenu', (req,res) => {
 	res.send('Hotdog: $20' + '/n' + 'Hamburger: $35' + '/n' + 'Soda: $4' + '/n' + 'Cookie: $6');
 })
 
-app.post('/purchase', (req,res) => {
+app.post('/purchase/item/quantity', (req,res) => {
 })
 
 app.listen(port, () => console.log(`Server is listening on port ${port}!`))
