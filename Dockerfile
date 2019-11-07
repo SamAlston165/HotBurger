@@ -10,3 +10,4 @@ RUN npm install express --save && npm install morgan --save && npm install read-
 EXPOSE 80
 
 CMD ["node","HotburgerOrdering.js"]
+CMD ["node","HotburgerMonitoring.js"]
