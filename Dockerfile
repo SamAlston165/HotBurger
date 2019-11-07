@@ -3,11 +3,9 @@ RUN apk update && apk add nodejs && apk add git
 RUN apk add --update nodejs npm
 RUN git clone https://github.com/SamAlston165/HotBurger.git
 
-COPY . /app
-WORKDIR /app
+WORKDIR /HotBurger
 
-RUN npm install express --save
-RUN npm install morgan --save
+RUN npm install express --save && npm install morgan --save && npm install read-last-lines --save
 
 EXPOSE 80
 
