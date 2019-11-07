@@ -1,3 +1,0 @@
-GET / 200 32 - 3.085 ms
-GET /favicon.ico 404 150 - 1.096 ms
-GET /getmenu 200 49 - 0.341 ms
