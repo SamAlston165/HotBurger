@@ -1,18 +1,9 @@
 version: '3'
 
 services:
-  ordering:
-    build: .
-    image: "alpine:latest"
-    ports:
-      - "80:80"
-    volumes:
-      - .:/logging
-
-  monitoring:
-    build: .
-    image: "alpine:latest"
-    volumes:
-      - .:/logging
-    ports:
-      - "80:80"
+  web:
+          build: .
+          ports:
+                  - "80:80"
+          volumes:
+                  - ./:/HotBurger
