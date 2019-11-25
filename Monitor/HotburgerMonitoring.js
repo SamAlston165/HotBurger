@@ -1,16 +1,16 @@
 const express = require('express')
 const app = express()
-const port = 80
+const port = 8080
 const fs = require('fs');
 var morgan = require('morgan')
 const readLastLines = require('read-last-lines');
 
-var accessLogStream = fs.createWriteStream(__dirname + '/project.log',{flags: 'a'});
+var accessLogStream = fs.createWriteStream('/HotBurger/Order/project.log',{flags: 'a'});
 
 //Reports back the total amount of earnings thus far
 app.get('/gettotal', (req, res) => {
 
-  readLastLines.read(__dirname + '/project.log', 1).then( (lines) => {
+  readLastLines.read('/HotBurger/Order/project.log', 1).then( (lines) => {
 
       res.send('Earnings thus far is: $' + lines.toString().substring(0,lines.length-1).split(' ')[24]);
 
@@ -20,9 +20,9 @@ app.get('/gettotal', (req, res) => {
 //Reports back the item that has been purchased the greatest number of times
 app.get('/gettopseller', (req, res) => {
 
-var contents = fs.readFileSync(__dirname + '/project.log');
+var contents = fs.readFileSync('/HotBurger/Order/project.log');
 
-readLastLines.read(__dirname + '/project.log', 1).then( (lines) => {
+readLastLines.read('/HotBurger/Order/project.log', 1).then( (lines) => {
 
     res.send('Top Seller is: ' + lines.toString().substring(0,lines.length-1).split(' ')[19]);
 
@@ -33,7 +33,7 @@ readLastLines.read(__dirname + '/project.log', 1).then( (lines) => {
 //Reports back the total number of all requests
 app.get('/getrequestcount', (req, res) => {
 
-var contents = fs.readFileSync(__dirname + '/project.log');
+var contents = fs.readFileSync('/HotBurger/Order/project.log');
 var lines = contents.toString().split('\n').length - 1;
 res.send('Total number of requests is ' + lines);
 
@@ -42,7 +42,7 @@ res.send('Total number of requests is ' + lines);
 //Reports back whether the last request was successful or not
 app.get('/getlastrequeststatus', (req, res) => {
 
-readLastLines.read(__dirname + '/project.log', 1).then( (lines) => {
+readLastLines.read('/HotBurger/Order/project.log', 1).then( (lines) => {
 
   if(lines.toString().substring(0,lines.length-1).split(' ')[12] == 200)
   {
@@ -60,7 +60,7 @@ readLastLines.read(__dirname + '/project.log', 1).then( (lines) => {
 //Reports back when the last request occurred
 app.get('/getlastrequesttime', (req, res) => {
 
-readLastLines.read(__dirname + '/project.log', 1).then((lines) => res.send(lines));
+readLastLines.read('/HotBurger/Order/project.log', 1).then((lines) => res.send(lines));
 
 })
 

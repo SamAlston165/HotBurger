@@ -1,7 +1,21 @@
-version: '3'
+version: "3"
 
 services:
-        ordering:
-                build: './Order'
-        monitoring:
-                build: './Monitor'
+        order:
+                build: ./Order
+                ports:
+                        - "80:80"
+                volumes:
+                        - ./:/HotBurger
+        monitor:
+                build: ./Monitor
+                ports:
+                        - "8080:8080"
+                volumes:
+                        - ./:/HotBurger
+        inventory:
+                build: ./Inventory
+                ports:
+                        - "8082:8082"
+        customerservice:
+                build: ./CustomerService
